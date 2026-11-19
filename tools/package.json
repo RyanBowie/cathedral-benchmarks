@@ -1,0 +1,6 @@
+{
+  "name": "cathedral-benchmark-tools",
+  "private": true,
+  "description": "Headless Edge capture, clip and spot-check scripts for static mirrors",
+  "dependencies": { "playwright": "^1.56.0" }
+}

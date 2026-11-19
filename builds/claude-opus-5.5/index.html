@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive, procedurally generated educational model of Cologne Cathedral (Kölner Dom)." />
+    <title>Cologne Cathedral Explorer</title>
+    <script type="module" crossorigin src="./assets/index-DazmmRlT.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B16axqzI.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="view" tabindex="0" role="img" aria-label="3D view of Cologne Cathedral. Drag to orbit, right-drag or two fingers to pan, wheel or pinch to zoom. Keys: arrows orbit, Shift plus arrows pan, W A S D move, plus and minus zoom, H home, 1 to 9 named views. Double-click to fly to a point."></canvas>
+      <div id="labels" aria-hidden="true"></div>
+      <div id="tooltip" role="tooltip" hidden></div>
+
+      <header id="topbar">
+        <h1 class="brand"><span class="mark" aria-hidden="true"></span><span class="brand-name">Cologne Cathedral Explorer</span><span class="brand-sub">approximate educational model</span></h1>
+        <div class="seg" role="radiogroup" aria-label="Display mode">
+          <button type="button" role="radio" aria-checked="true" data-mode="exterior" title="Exterior view (E)">Exterior</button>
+          <button type="button" role="radio" aria-checked="false" data-mode="interior" title="Interior view (I)">Interior</button>
+          <button type="button" role="radio" aria-checked="false" data-mode="xray" title="X-ray view (X)">X-ray</button>
+        </div>
+        <div class="tools">
+          <button type="button" id="btnHome" title="Home / reset view (H)">Home</button>
+          <button type="button" id="btnNight" aria-pressed="false" title="Night floodlighting (N)">Night</button>
+          <button type="button" id="btnFigures" aria-pressed="false" title="Show key figures as 3D dimension lines (F)">Key figures</button>
+          <button type="button" id="btn2d" title="Open the 2D interactive plan">2D plan</button>
+          <button type="button" id="btnHelp" title="Help and keyboard shortcuts (?)">Help</button>
+          <button type="button" id="btnAbout" title="About, sources and credits">About</button>
+        </div>
+      </header>
+
+      <aside id="left" class="panel" aria-label="Exploration controls">
+        <div class="panel-head">
+          <div role="tablist" aria-label="Control panels" id="tabs">
+            <button type="button" role="tab" id="tab-levels" aria-controls="pane-levels" aria-selected="true">Levels</button>
+            <button type="button" role="tab" id="tab-views" aria-controls="pane-views" aria-selected="false" tabindex="-1">Views</button>
+            <button type="button" role="tab" id="tab-sections" aria-controls="pane-sections" aria-selected="false" tabindex="-1">Sections</button>
+            <button type="button" role="tab" id="tab-tour" aria-controls="pane-tour" aria-selected="false" tabindex="-1">Tour</button>
+            <button type="button" role="tab" id="tab-climb" aria-controls="pane-climb" aria-selected="false" tabindex="-1">Climb</button>
+            <button type="button" role="tab" id="tab-light" aria-controls="pane-light" aria-selected="false" tabindex="-1">Light</button>
+          </div>
+          <button type="button" id="btnLeft" class="collapse" aria-expanded="true" aria-controls="leftBody" title="Collapse or expand the control panel">&#x2039;</button>
+        </div>
+        <div id="leftBody" class="panel-body">
+          <section role="tabpanel" id="pane-levels" aria-labelledby="tab-levels">
+            <p class="hint">Choose a level: everything above it is cut away (or ghosted), the camera moves there and only that level's places are shown.</p>
+            <div id="levelList" class="list" role="radiogroup" aria-label="Levels"></div>
+            <label class="check"><input type="checkbox" id="chkGhost" checked /> Ghost the parts above the cut</label>
+          </section>
+          <section role="tabpanel" id="pane-views" aria-labelledby="tab-views" hidden>
+            <p class="hint">Named viewpoints (keys 1&ndash;9). Double-click the model to fly to any point.</p>
+            <div id="viewList" class="list"></div>
+          </section>
+          <section role="tabpanel" id="pane-sections" aria-labelledby="tab-sections" hidden>
+            <fieldset>
+              <legend>Horizontal cut</legend>
+              <label class="check"><input type="checkbox" id="chkH" /> Cut horizontally</label>
+              <label class="range"><span>Height</span><input type="range" id="rngH" min="-8" max="160" step="0.5" value="12" aria-describedby="outH" /><output id="outH" for="rngH">12.0 m</output></label>
+            </fieldset>
+            <fieldset>
+              <legend>E&ndash;W vertical cut (long section)</legend>
+              <label class="check"><input type="checkbox" id="chkEW" /> Cut along the east&ndash;west axis</label>
+              <label class="range"><span>Offset</span><input type="range" id="rngEW" min="-30" max="30" step="0.5" value="0" aria-describedby="outEW" /><output id="outEW" for="rngEW">0.0 m</output></label>
+              <p class="hint">Removes the south half so the nave wall shows arcade, triforium, clerestory, vaults and the roof in profile.</p>
+            </fieldset>
+            <fieldset>
+              <legend>N&ndash;S vertical cut (cross section)</legend>
+              <label class="check"><input type="checkbox" id="chkNS" /> Cut across the nave</label>
+              <label class="range"><span>Position</span><input type="range" id="rngNS" min="-70" max="60" step="0.5" value="-26.6" aria-describedby="outNS" /><output id="outNS" for="rngNS">-26.6 m</output></label>
+            </fieldset>
+            <div class="row">
+              <button type="button" id="btnSecView">Look at the section</button>
+              <button type="button" id="btnSecClear">Clear cuts</button>
+            </div>
+          </section>
+          <section role="tabpanel" id="pane-tour" aria-labelledby="tab-tour" hidden>
+            <p class="hint">A guided tour. Use Play, or step with Previous / Next (keys [ and ]).</p>
+            <div class="row">
+              <button type="button" id="btnTourStart" class="primary">Start tour</button>
+            </div>
+            <ol id="tourList" class="list numbered"></ol>
+          </section>
+          <section role="tabpanel" id="pane-climb" aria-labelledby="tab-climb" hidden>
+            <p class="hint">Climb the south tower: 533 steps to the viewing platform at 97.25 m.</p>
+            <div class="climb-readout" aria-live="polite"><span id="climbStep">Step 0 / 533</span><span id="climbHeight">0.0 m</span></div>
+            <label class="range"><span>Progress</span><input type="range" id="rngClimb" min="0" max="533" step="1" value="0" aria-describedby="climbStep" /></label>
+            <div class="row">
+              <button type="button" id="btnClimbPlay" class="primary">Start climb</button>
+              <button type="button" id="btnClimbStop">Stop</button>
+            </div>
+            <ol id="climbList" class="list numbered"></ol>
+          </section>
+          <section role="tabpanel" id="pane-light" aria-labelledby="tab-light" hidden>
+            <fieldset>
+              <legend>Sun and time</legend>
+              <label class="range"><span>Time</span><input type="range" id="rngTime" min="0" max="24" step="0.25" value="16" aria-describedby="outTime" /><output id="outTime" for="rngTime">16:00</output></label>
+              <label class="select"><span>Season</span>
+                <select id="selSeason">
+                  <option value="equinox">Spring / autumn equinox</option>
+                  <option value="summer">Summer solstice</option>
+                  <option value="winter">Winter solstice</option>
+                </select>
+              </label>
+              <p class="hint" id="sunInfo">Sun elevation</p>
+            </fieldset>
+            <fieldset>
+              <legend>Display</legend>
+              <label class="select"><span>Quality</span>
+                <select id="selQuality">
+                  <option value="low">Low (fastest)</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </label>
+              <label class="check"><input type="checkbox" id="chkLabels" checked /> Show place markers</label>
+              <label class="check"><input type="checkbox" id="chkFps" /> Show frame rate</label>
+              <label class="check"><input type="checkbox" id="chkMotion" /> Reduce motion (instant camera moves)</label>
+            </fieldset>
+            <div class="row">
+              <button type="button" id="btnResetApp" title="Clear saved settings and restart">Reset app</button>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <div id="minimapWrap" class="panel" aria-label="Minimap">
+        <canvas id="minimap" width="280" height="200" tabindex="0" role="img" aria-label="Minimap: top-down plan generated from the model, north up. Shows the camera position and direction, the current level and places. Click to move the camera there; arrow keys nudge it."></canvas>
+        <div class="mm-legend"><span id="mmLevel">All levels</span><span class="mm-n" aria-hidden="true">N &#x2191;</span></div>
+      </div>
+
+      <aside id="right" class="panel" aria-label="Places and information">
+        <div class="panel-head">
+          <h2 id="placesTitle">Places</h2>
+          <button type="button" id="btnRight" class="collapse" aria-expanded="true" aria-controls="rightBody" title="Collapse or expand the places panel">&#x203A;</button>
+        </div>
+        <div id="rightBody" class="panel-body">
+          <label class="search" for="search"><span class="sr-only">Search places</span>
+            <input id="search" type="search" placeholder="Search places, e.g. Richter, shrine, bell" autocomplete="off" aria-describedby="placeCount" />
+          </label>
+          <label class="check small"><input type="checkbox" id="chkAllLevels" checked /> List places on all levels</label>
+          <div id="placeCount" class="hint" aria-live="polite"></div>
+          <div id="placeList" class="places"></div>
+        </div>
+      </aside>
+
+      <article id="info" class="panel" aria-live="polite" aria-labelledby="infoName" hidden>
+        <div class="info-head">
+          <h2 id="infoName">Place</h2>
+          <button type="button" id="btnInfoClose" class="icon" aria-label="Close information">&#x2715;</button>
+        </div>
+        <p class="meta" id="infoMeta"></p>
+        <p id="infoFact"></p>
+        <p class="src" id="infoSrc"></p>
+        <div class="row">
+          <button type="button" id="btnInfoFly" class="primary">Fly to</button>
+        </div>
+      </article>
+
+      <div id="navpad" class="panel" role="group" aria-label="Camera controls">
+        <button type="button" id="zoomIn" aria-label="Zoom in" title="Zoom in (+)">+</button>
+        <button type="button" id="zoomOut" aria-label="Zoom out" title="Zoom out (&#x2212;)">&#x2212;</button>
+        <button type="button" id="orbitL" aria-label="Orbit left" title="Orbit left (Left arrow)">&#x21BA;</button>
+        <button type="button" id="orbitR" aria-label="Orbit right" title="Orbit right (Right arrow)">&#x21BB;</button>
+      </div>
+      <div id="compass" role="img" aria-label="Compass: north is up">
+        <div id="compassRose"><span class="n">N</span><span class="e">E</span><span class="s">S</span><span class="w">W</span><i aria-hidden="true"></i></div>
+      </div>
+
+      <div id="playbar" class="panel" role="region" aria-label="Tour and climb player" hidden>
+        <div class="pb-text">
+          <div class="pb-count" id="pbCount"></div>
+          <h2 id="pbTitle"></h2>
+          <p id="pbText"></p>
+        </div>
+        <div class="pb-ctrl">
+          <button type="button" id="pbPrev" aria-label="Previous stop">&#x25C0; Prev</button>
+          <button type="button" id="pbPlay" aria-label="Pause">Pause</button>
+          <button type="button" id="pbNext" aria-label="Next stop">Next &#x25B6;</button>
+          <button type="button" id="pbEnd" aria-label="End">End</button>
+        </div>
+      </div>
+
+      <div id="fps" aria-hidden="true" hidden></div>
+      <div id="toast" role="status" aria-live="polite"></div>
+      <div id="live" class="sr-only" aria-live="polite"></div>
+
+      <div id="loader" role="status" aria-live="polite">
+        <div class="ld-card">
+          <div class="ld-spire" aria-hidden="true"></div>
+          <h2>Cologne Cathedral Explorer</h2>
+          <p id="ldText">Starting&hellip;</p>
+          <div class="ld-bar" aria-hidden="true"><i id="ldBar"></i></div>
+          <p class="hint">All geometry is generated in your browser &mdash; no images or models are downloaded.</p>
+        </div>
+      </div>
+
+      <div id="plan2d" role="dialog" aria-modal="false" aria-labelledby="plan2dTitle" hidden>
+        <div class="p2-head">
+          <h2 id="plan2dTitle">2D interactive plan</h2>
+          <p id="plan2dMsg" class="hint"></p>
+          <button type="button" id="btnPlanClose" class="icon" aria-label="Close 2D plan">&#x2715;</button>
+        </div>
+        <div class="p2-body">
+          <div class="p2-side">
+            <div id="p2Levels" class="list" role="radiogroup" aria-label="Plan level"></div>
+            <div class="row"><button type="button" id="p2ZoomIn" aria-label="Zoom plan in">+</button><button type="button" id="p2ZoomOut" aria-label="Zoom plan out">&#x2212;</button><button type="button" id="p2Reset">Reset</button></div>
+            <div id="p2List" class="places"></div>
+          </div>
+          <div class="p2-main">
+            <canvas id="p2Canvas" tabindex="0" role="img" aria-label="2D plan of Cologne Cathedral, north up. Click a numbered marker for details; drag to pan; wheel to zoom."></canvas>
+            <div id="p2Info" class="p2-info" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+
+      <dialog id="dlgHelp" aria-labelledby="helpTitle">
+        <div class="dlg-head"><h2 id="helpTitle">Help</h2><button type="button" class="icon dlg-close" aria-label="Close help">&#x2715;</button></div>
+        <div class="dlg-body">
+          <h3>Mouse and touch</h3>
+          <ul>
+            <li><b>Orbit</b>: drag with the left mouse button or one finger.</li>
+            <li><b>Pan</b>: right-drag, Shift+drag or two fingers.</li>
+            <li><b>Zoom</b>: mouse wheel, pinch, or the + / &#x2212; buttons.</li>
+            <li><b>Focus</b>: double-click the model to fly there. Click a gold marker for information.</li>
+          </ul>
+          <h3>Keyboard</h3>
+          <table class="keys">
+            <tbody>
+              <tr><th scope="row">Arrow keys</th><td>Orbit (Shift + arrows: pan)</td></tr>
+              <tr><th scope="row">W A S D / Q R</th><td>Move forward, left, back, right / down, up</td></tr>
+              <tr><th scope="row">+ / &#x2212;, PageUp / PageDown</th><td>Zoom in / out</td></tr>
+              <tr><th scope="row">H or Home</th><td>Home view</td></tr>
+              <tr><th scope="row">1 &ndash; 9</th><td>Named views</td></tr>
+              <tr><th scope="row">E / I / X</th><td>Exterior / Interior / X-ray</td></tr>
+              <tr><th scope="row">N</th><td>Night floodlighting on/off</td></tr>
+              <tr><th scope="row">F</th><td>Key figures on/off</td></tr>
+              <tr><th scope="row">L</th><td>Next level (Shift+L previous)</td></tr>
+              <tr><th scope="row">T</th><td>Start / stop the tour; [ and ] previous / next stop</td></tr>
+              <tr><th scope="row">C</th><td>Start / stop the tower climb</td></tr>
+              <tr><th scope="row">P</th><td>Open the 2D plan</td></tr>
+              <tr><th scope="row">/</th><td>Search places</td></tr>
+              <tr><th scope="row">Esc</th><td>Close panels, stop the tour or climb</td></tr>
+              <tr><th scope="row">?</th><td>This help</td></tr>
+            </tbody>
+          </table>
+          <p class="hint">Every control is a normal button or field, so Tab / Shift+Tab reach them all. Your operating system's reduced-motion setting makes camera moves instant.</p>
+        </div>
+      </dialog>
+
+      <dialog id="dlgAbout" aria-labelledby="aboutTitle">
+        <div class="dlg-head"><h2 id="aboutTitle">About this model</h2><button type="button" class="icon dlg-close" aria-label="Close about">&#x2715;</button></div>
+        <div class="dlg-body" id="aboutBody"></div>
+      </dialog>
+
+      <div id="fallback" role="alert" hidden>
+        <div class="fb-card">
+          <h2>3D view unavailable</h2>
+          <p id="fbMsg">This browser could not start WebGL, so the 3D model cannot be shown.</p>
+          <p>You can still explore the cathedral with the interactive 2D plan below.</p>
+          <div class="row"><button type="button" id="fbOpenPlan" class="primary">Open the 2D plan</button><button type="button" id="fbRetry">Try 3D again</button></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

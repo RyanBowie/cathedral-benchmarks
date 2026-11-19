@@ -1,0 +1,54 @@
+{
+ "when": "2026-11-19T02:06:54.126Z",
+ "ok": true,
+ "res": {
+  "env": {
+   "css": [
+    1478,
+    861
+   ],
+   "dpr": 1.5,
+   "pixelRatio": 1.25,
+   "buffer": [
+    1847,
+    1076
+   ]
+  },
+  "default exterior (fresh load)": {
+   "fps": 60.1,
+   "frames": 601,
+   "calls": 50,
+   "tris": 668251,
+   "mode": "exterior",
+   "night": false,
+   "quality": "medium"
+  },
+  "x-ray (day, home)": {
+   "fps": 60,
+   "frames": 601,
+   "calls": 55,
+   "tris": 687795,
+   "mode": "xray",
+   "night": false,
+   "quality": "medium"
+  },
+  "nave": {
+   "fps": 50.2,
+   "frames": 503,
+   "calls": 23,
+   "tris": 315909,
+   "mode": "interior",
+   "night": false,
+   "quality": "medium"
+  },
+  "choir": {
+   "fps": 58,
+   "frames": 581,
+   "calls": 18,
+   "tris": 295545,
+   "mode": "interior",
+   "night": false,
+   "quality": "medium"
+  }
+ }
+}

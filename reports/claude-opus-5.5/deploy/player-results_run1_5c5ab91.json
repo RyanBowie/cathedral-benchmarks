@@ -1,0 +1,287 @@
+{
+ "when": "2026-11-19T01:24:20.332Z",
+ "url": "https://play.preview.managedapps.cloud.microsoft/apps/<id>",
+ "results": [
+  {
+   "id": "P1 deployed app renders live WebGL in the player",
+   "ok": true,
+   "note": {
+    "loadMs": 6002,
+    "playerButtonsClicked": [],
+    "appOrigin": "https://<app-gateway-host>",
+    "title": "Cologne Cathedral Explorer",
+    "webgl2": true,
+    "lost": false,
+    "gpu": "ANGLE (Qualcomm, Qualcomm(R) Adreno(TM) X1-85 GPU (0x36334330) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "frame": [
+     1478,
+     861
+    ],
+    "dpr": 1.5,
+    "buffer": [
+     1847,
+     1076
+    ],
+    "colours16": 125,
+    "lumSD": 35.8,
+    "calls": 50,
+    "tris": 668251
+   }
+  },
+  {
+   "id": "P2 world/context labels shown (occluded ones hidden)",
+   "ok": true,
+   "note": {
+    "total": 12,
+    "visible": [
+     "Rhine",
+     "Hohenzollern Bridge",
+     "Hauptbahnhof (main station)",
+     "Römisch-Germanisches Museum",
+     "Museum Ludwig",
+     "Roncalliplatz",
+     "Domplatte (cathedral square)",
+     "Nnorth",
+     "Eeast"
+    ]
+   }
+  },
+  {
+   "id": "N1 wheel zoom in AND out, left-drag orbit, right-drag pan",
+   "ok": true,
+   "note": {
+    "point": [
+     813,
+     435
+    ],
+    "d": [
+     355.19,
+     261.1,
+     483.19
+    ],
+    "az": [
+     -43,
+     -134.8
+    ],
+    "panTarget": [
+     [
+      -19.04,
+      52.66,
+      -5.77
+     ],
+     [
+      25.27,
+      79.47,
+      -40.02
+     ]
+    ]
+   }
+  },
+  {
+   "id": "N1 zoom buttons both ways, orbit button, arrow keys, distance limits; N3 Home",
+   "ok": true,
+   "note": {
+    "zoomBtn": [
+     355.19,
+     227.32,
+     443.98
+    ],
+    "orbitBtn": [
+     -43,
+     -13.2
+    ],
+    "arrows": [
+     -13.2,
+     -33.9
+    ],
+    "far": 900,
+    "near": 3,
+    "lim": {
+     "min": 3,
+     "max": 900
+    },
+    "home": [
+     -250,
+     125,
+     255
+    ]
+   }
+  },
+  {
+   "id": "N2 all named views fly correctly in the player",
+   "ok": true,
+   "note": {
+    "home": 0,
+    "west": 0,
+    "south": 0,
+    "chevet": 0,
+    "rhine": 0,
+    "bird": 0,
+    "nave": 0,
+    "crossing": 0,
+    "choir": 0,
+    "spires": 0,
+    "night": 0,
+    "section": 0
+   }
+  },
+  {
+   "id": "F1/F2 level selection works in the player",
+   "ok": true,
+   "note": {
+    "levels": [
+     "all",
+     "spires",
+     "platform",
+     "bells",
+     "roof",
+     "triforium",
+     "floor",
+     "crypt",
+     "excavations"
+    ],
+    "res": {
+     "crypt": {
+      "level": "crypt",
+      "markers": 2
+     },
+     "triforium": {
+      "level": "triforium",
+      "markers": 1
+     },
+     "roof": {
+      "level": "roof",
+      "markers": 2
+     },
+     "platform": {
+      "level": "platform",
+      "markers": 1
+     }
+    }
+   }
+  },
+  {
+   "id": "I1 hotspot click opens the info card in the player",
+   "ok": true,
+   "note": {
+    "markers": 33,
+    "card": {
+     "hidden": false,
+     "name": "West portal (main entrance)",
+     "meta": "Place 1 · Cathedral floor (0 m) · West front",
+     "factLen": 184
+    }
+   }
+  },
+  {
+   "id": "F3 exterior/interior/x-ray + F4 E-W section in the player",
+   "ok": true,
+   "note": {
+    "res": {
+     "xray": "xray",
+     "interior": "interior",
+     "exterior": "exterior"
+    },
+    "cut": true,
+    "cleared": true
+   }
+  },
+  {
+   "id": "I5 night floodlighting toggles in the player",
+   "ok": true,
+   "note": {
+    "on": true,
+    "off": false
+   }
+  },
+  {
+   "id": "I3 guided tour runs in the player",
+   "ok": true,
+   "note": {
+    "c1": "Tour · stop 1 of 13",
+    "c2": "Tour · stop 2 of 13"
+   }
+  },
+  {
+   "id": "I6 tower climb animates in the player",
+   "ok": true,
+   "note": {
+    "step": "Step 63 / 533",
+    "h": "11.5 m",
+    "climb": true
+   }
+  },
+  {
+   "id": "Q1 frame rate in the real player (rAF count, 6 s per view)",
+   "ok": true,
+   "note": {
+    "home": {
+     "fps": 59.6,
+     "calls": 50,
+     "tris": 668251
+    },
+    "nave": {
+     "fps": 44.6,
+     "calls": 23,
+     "tris": 315909
+    },
+    "choir": {
+     "fps": 44.4,
+     "calls": 18,
+     "tris": 295545
+    },
+    "night": {
+     "fps": 56.5,
+     "calls": 50,
+     "tris": 668251
+    },
+    "night x-ray": {
+     "fps": 60.1,
+     "calls": 55,
+     "tris": 687795
+    }
+   }
+  },
+  {
+   "id": "R2 2D plan opens and returns to 3D in the player",
+   "ok": true,
+   "note": {
+    "open1": true,
+    "n": 33,
+    "closed": true
+   }
+  },
+  {
+   "id": "Q4 About dialog with sources/credits in the player",
+   "ok": true,
+   "note": {
+    "open": true,
+    "credits": 12,
+    "links": 48,
+    "stats": "55 meshes · 686,847 triangles generated · 1,210,945 drawn in the last frame with 67 draw calls · 49 fps."
+   }
+  },
+  {
+   "id": "R1 console clean, no CSP violations (app frame)",
+   "ok": true,
+   "note": {
+    "appLogs": [],
+    "cspViolations": [],
+    "playerShellLogs": 4
+   }
+  },
+  {
+   "id": "R3 app frame makes no external requests",
+   "ok": true,
+   "note": {
+    "appRequests": 11,
+    "external": [],
+    "appDocs": [
+     "200 https://<app-gateway-host>/_platform/app/loader",
+     "200 https://<app-gateway-host>/"
+    ]
+   }
+  }
+ ],
+ "csp": "base-uri 'self'; child-src 'none'; connect-src 'self'; default-src 'self'; font-src 'self'; form-action 'none'; frame-ancestors 'self' https://*.powerapps.com https://play.managedapps.cloud.microsoft https://play.preview.managedapps.cloud.microsoft; frame-src 'self'; img-src 'self' data:; manifest-src 'none'; media-src 'self' data:; object-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'none';"
+}

@@ -1,0 +1,167 @@
+{
+  "1440x900": {
+    "home": {
+      "world": [
+        "Hohenzollern Bridge",
+        "Hauptbahnhof (main station)",
+        "Römisch-Germanisches Museum",
+        "Museum Ludwig",
+        "Roncalliplatz",
+        "Domplatte (cathedral square)",
+        "Eeast"
+      ],
+      "markers": 19,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "orbit": {
+      "world": [
+        "Römisch-Germanisches Museum",
+        "Roncalliplatz",
+        "Domplatte (cathedral square)",
+        "Eeast"
+      ],
+      "markers": 19,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figures": {
+      "world": [
+        "Roncalliplatz",
+        "Domplatte (cathedral square)",
+        "Eeast"
+      ],
+      "markers": 9,
+      "figLabels": 10,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figHome": {
+      "world": [
+        "Hohenzollern Bridge",
+        "Hauptbahnhof (main station)",
+        "Römisch-Germanisches Museum",
+        "Roncalliplatz",
+        "Eeast"
+      ],
+      "markers": 8,
+      "figLabels": 10,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    }
+  },
+  "1024x768": {
+    "home": {
+      "world": [
+        "Hohenzollern Bridge",
+        "Museum Ludwig",
+        "Roncalliplatz",
+        "Domplatte (cathedral square)"
+      ],
+      "markers": 18,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "orbit": {
+      "world": [
+        "Domplatte (cathedral square)",
+        "Eeast"
+      ],
+      "markers": 19,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figures": {
+      "world": [],
+      "markers": 4,
+      "figLabels": 10,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figHome": {
+      "world": [
+        "Hohenzollern Bridge",
+        "Roncalliplatz"
+      ],
+      "markers": 5,
+      "figLabels": 10,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    }
+  },
+  "820x1180": {
+    "home": {
+      "world": [
+        "Domplatte (cathedral square)",
+        "Nnorth"
+      ],
+      "markers": 13,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "orbit": {
+      "world": [],
+      "markers": 16,
+      "figLabels": 0,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figures": {
+      "world": [],
+      "markers": 11,
+      "figLabels": 9,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    },
+    "figHome": {
+      "world": [
+        "Nnorth"
+      ],
+      "markers": 7,
+      "figLabels": 9,
+      "labelUnderUi": [],
+      "labelOffScreen": [],
+      "markerUnderUi": [],
+      "labelOnMarker": [],
+      "labelOnLabel": []
+    }
+  }
+}

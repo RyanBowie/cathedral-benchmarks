@@ -1,0 +1,71 @@
+[
+  {
+    "id": "R2a --disable-webgl2: 2D plan with message",
+    "ok": true,
+    "note": {
+      "webgl2Available": false,
+      "plan": true,
+      "msg": "WebGL 2 is not available, so the 2D plan is shown instead.",
+      "items": 33,
+      "lit": 922260,
+      "webgl3d": false,
+      "logs": [],
+      "ext": []
+    }
+  },
+  {
+    "id": "R2b no WebGL 2 (getContext null): 2D plan works",
+    "ok": true,
+    "note": {
+      "plan": true,
+      "msg": "WebGL 2 is not available, so the 2D plan is shown instead.",
+      "items": 33,
+      "lit": 922260,
+      "webgl3d": false,
+      "info": "17. Cathedral excavations",
+      "logs": [],
+      "ext": []
+    }
+  },
+  {
+    "id": "R2c start failure: message, then 2D plan",
+    "ok": true,
+    "note": {
+      "fb": {
+        "shown": true,
+        "msg": "The 3D view could not start (THREE.WebGLRenderer: Error creating WebGL context.). You can use the 2D plan instead.",
+        "loaderDone": true
+      },
+      "plan": {
+        "plan": true,
+        "msg": "Top-down plan drawn from the same data as the 3D model. North is up.",
+        "items": 33,
+        "lit": 922260,
+        "webgl3d": false
+      },
+      "expectedErrorLogged": 2,
+      "otherLogs": [],
+      "ext": []
+    }
+  },
+  {
+    "id": "R2d context loss: message, render loop stopped; Retry restores 3D",
+    "ok": true,
+    "note": {
+      "before": true,
+      "fb": {
+        "shown": true,
+        "msg": "The graphics context was lost (GPU reset). Retry, or use the 2D plan.",
+        "loaderDone": true
+      },
+      "runningAfterLoss": false,
+      "afterRetry": {
+        "cce": true,
+        "fallbackHidden": true,
+        "calls": 50
+      },
+      "logs": [],
+      "ext": []
+    }
+  }
+]

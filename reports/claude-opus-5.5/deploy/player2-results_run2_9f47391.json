@@ -1,0 +1,191 @@
+{
+ "when": "2026-11-19T02:05:46.676Z",
+ "results": [
+  {
+   "id": "N3 Home restores the default view AND state in the player",
+   "ok": true,
+   "note": {
+    "before": {
+     "mode": "xray",
+     "level": "crypt",
+     "night": true,
+     "ew": true
+    },
+    "after": {
+     "mode": "exterior",
+     "level": "all",
+     "night": false,
+     "cutsOff": true,
+     "cam": [
+      -250,
+      125,
+      255
+     ]
+    }
+   }
+  },
+  {
+   "id": "N4 double-click and \"Fly to\" focus in the player",
+   "ok": true,
+   "note": {
+    "dblclick": {
+     "d": [
+      355.19,
+      40
+     ]
+    },
+    "flyTo": {
+     "place": "West portal (main entrance)",
+     "d": [
+      355.19,
+      52.99
+     ],
+     "targetMoved": 76.6
+    }
+   }
+  },
+  {
+   "id": "F5 minimap click (and arrow key) moves the camera in the player",
+   "ok": true,
+   "note": {
+    "t": [
+     [
+      -12,
+      58,
+      0
+     ],
+     [
+      56.69,
+      58,
+      -0.81
+     ],
+     [
+      64.69,
+      58,
+      -0.81
+     ]
+    ]
+   }
+  },
+  {
+   "id": "I2 search \"Richter\", \"shrine\", \"bell\" in the player",
+   "ok": true,
+   "note": {
+    "res": {
+     "Richter": {
+      "n": 1,
+      "first": "8. Richter window"
+     },
+     "shrine": {
+      "n": 1,
+      "first": "2. Shrine of the Three Kings"
+     },
+     "bell": {
+      "n": 2,
+      "first": "12. Petersglocke (St Peter's bell)"
+     }
+    },
+    "opened": "Richter window",
+    "groups": {
+     "levels": 8,
+     "zones": 21,
+     "items": 33
+    }
+   }
+  },
+  {
+   "id": "N1 touch emulation in the player: one-finger orbit + two-finger pinch zoom",
+   "ok": true,
+   "note": {
+    "az": [
+     -43,
+     -113.3
+    ],
+    "d": [
+     355.19,
+     71.04
+    ]
+   }
+  },
+  {
+   "id": "Q2 usable at 1440x900 and 1024x768 in the player (3D view visible share)",
+   "ok": true,
+   "note": {
+    "1440x900": {
+     "share": 0.564,
+     "frame": [
+      1440,
+      852
+     ],
+     "panels": {
+      "left": [
+       12,
+       64,
+       312,
+       563
+      ],
+      "right": [
+       1128,
+       64,
+       1428,
+       840
+      ],
+      "minimap": [
+       12,
+       606,
+       305,
+       840
+      ],
+      "topbar": [
+       0,
+       0,
+       1440,
+       52
+      ]
+     }
+    },
+    "1024x768": {
+     "share": 0.422,
+     "frame": [
+      1024,
+      720
+     ],
+     "panels": {
+      "left": [
+       12,
+       64,
+       292,
+       488
+      ],
+      "right": [
+       712,
+       64,
+       1012,
+       708
+      ],
+      "minimap": [
+       12,
+       504,
+       263,
+       708
+      ],
+      "topbar": [
+       0,
+       0,
+       1024,
+       52
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "R1 app console clean during these checks",
+   "ok": true,
+   "note": {
+    "appLogs": [],
+    "otherLogs": 2
+   }
+  }
+ ]
+}
