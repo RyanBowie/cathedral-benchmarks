@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cologne Cathedral Explorer</title>
+  <meta name="description" content="An interactive, procedurally generated 3D model of Cologne Cathedral with levels, cuts, a guided tour and key facts." />
+  <meta name="theme-color" content="#0f1117" />
+  <link rel="icon" href="data:," />
+  <script type="module" crossorigin src="./assets/index-BSGR_k07.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DNt1sHwn.css">
+</head>
+<body>
+  <a class="skip" id="skip" href="#gl">Skip to the 3D view</a>
+  <div id="app">
+    <canvas id="gl" tabindex="0" role="application" aria-label="3D model of Cologne Cathedral. Drag to orbit, scroll to zoom. Arrow keys rotate, W A S D move, plus and minus zoom."></canvas>
+  </div>
+  <svg id="facts-svg" aria-hidden="true"></svg>
+  <div id="hs-layer" aria-label="Hotspots"></div>
+  <div id="lbl-layer" aria-hidden="true"></div>
+
+  <header id="topbar"></header>
+  <aside id="dock" aria-label="Explore panel"></aside>
+  <aside id="drawer" aria-label="Search and information" hidden></aside>
+  <div id="mini-wrap"></div>
+  <div id="tourcap" role="region" aria-label="Guided tour" hidden></div>
+  <div id="bottom"></div>
+  <div id="modal-root"></div>
+  <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+
+  <div id="fallback" hidden></div>
+
+  <div id="loading" role="status" aria-live="polite">
+    <div class="load-card">
+      <div class="load-title">Cologne Cathedral Explorer</div>
+      <p class="load-sub">Generating the cathedral from code. Nothing is downloaded: every stone is built in your browser.</p>
+      <div class="load-track"><div id="load-bar"></div></div>
+      <p id="load-msg">Starting</p>
+    </div>
+  </div>
+
+</body>
+</html>

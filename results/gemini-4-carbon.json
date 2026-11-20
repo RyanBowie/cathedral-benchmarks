@@ -1,0 +1,89 @@
+{
+  "pack": "cologne-cathedral-pack/2.0",
+  "packSha256": "b089d1fc015842314ce04718dcf6751d94c198b04c680d8663e71a426e3d4a24",
+  "track": "A",
+  "model": "Gemini 4 Carbon",
+  "reasoning": "High",
+  "harness": "GitHub Copilot app (autopilot), deployed to Copilot Managed Runtime",
+  "date": "2026-11-19",
+  "prompts": [
+    {
+      "n": 1,
+      "kind": "kickoff",
+      "sha256": "fc11b38ef3c8ee0d810e2da8d93766adfdf0dbbd149bc961894a579c8d1affb3"
+    }
+  ],
+  "otherUserMessages": "None about the app. The session was interrupted and resumed with no new instructions. No repair prompts.",
+  "firstOutput": {
+    "functional": 100,
+    "visual": 75,
+    "cost": null
+  },
+  "final": {
+    "functional": 100,
+    "visual": 75,
+    "pass": false
+  },
+  "finalCost": "919 AI credits (operator figure, completed app)",
+  "repairs": 0,
+  "time": {
+    "toVerifiedApp": "2 h 22 min",
+    "minutes": 142,
+    "compactions": 5
+  },
+  "build": {
+    "stack": "React + TypeScript, three.js 0.187",
+    "sourceCommit": "57c800f",
+    "staticBundleKB": 945
+  },
+  "itemScores": {
+    "R1": 1,
+    "R2": 1,
+    "R3": 1,
+    "R4": 1,
+    "N1": 1,
+    "N2": 1,
+    "N3": 1,
+    "N4": 1,
+    "F1": 1,
+    "F2": 1,
+    "F3": 1,
+    "F4": 1,
+    "F5": 1,
+    "I1": 1,
+    "I2": 1,
+    "I3": 1,
+    "I4": 1,
+    "I5": 1,
+    "I6": 1,
+    "Q1": 1,
+    "Q2": 1,
+    "Q3": 1,
+    "Q4": 1,
+    "M1": "present",
+    "M2": "present",
+    "M3": "present",
+    "M4": "present",
+    "M5": "present",
+    "M6": "present",
+    "M7": "present",
+    "M8": "present",
+    "V1": 1,
+    "V2": 1,
+    "V3": 1,
+    "V4": 0.5,
+    "V5": 0.5,
+    "V6": 0.5,
+    "V7": 0.5
+  },
+  "benchmarkScores": {
+    "likeness": 7.0,
+    "gothic": 6.5,
+    "interior": 6.5,
+    "navigation": 7.5,
+    "learning": 7.5,
+    "ui": 6.5,
+    "perf": 8.0
+  },
+  "notes": "Provisional single-reviewer scores. Functional items rest on the model's own self-check and in-player evidence plus an independent reviewer check of the static mirror in headless Edge (D3D11): zero console errors, zero external requests, zero 404s, 61 fps home and 60 fps interior, working 2D fallback with WebGL disabled, no unnamed controls, 3D view keeps 93% of a 1024x768 window. Visual deductions: V4 interior very pale; V5 interior lacks warmth; V6 dense, dark UI with small type; V7 minor label clutter. Bundles CC-licensed reference thumbnails, credited in the app. Isolated run folder containing only the pack."
+}

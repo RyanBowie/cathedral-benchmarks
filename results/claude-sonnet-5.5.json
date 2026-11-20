@@ -1,0 +1,89 @@
+{
+  "pack": "cologne-cathedral-pack/2.0",
+  "packSha256": "b089d1fc015842314ce04718dcf6751d94c198b04c680d8663e71a426e3d4a24",
+  "track": "A",
+  "model": "Claude Sonnet 5.5",
+  "reasoning": "Max",
+  "harness": "GitHub Copilot app (autopilot), deployed to Copilot Managed Runtime",
+  "date": "2026-11-19",
+  "prompts": [
+    {
+      "n": 1,
+      "kind": "kickoff",
+      "sha256": "fc11b38ef3c8ee0d810e2da8d93766adfdf0dbbd149bc961894a579c8d1affb3"
+    }
+  ],
+  "otherUserMessages": "None. No repair prompts.",
+  "firstOutput": {
+    "functional": 96,
+    "visual": 58,
+    "cost": null
+  },
+  "final": {
+    "functional": 96,
+    "visual": 58,
+    "pass": false
+  },
+  "finalCost": "3,217 AI credits (operator figure, completed app)",
+  "repairs": 0,
+  "time": {
+    "toVerifiedApp": "3 h 28 min",
+    "minutes": 208,
+    "compactions": 28
+  },
+  "build": {
+    "stack": "No framework, three.js 0.180",
+    "sourceCommit": "5445328",
+    "staticBundleKB": 653
+  },
+  "itemScores": {
+    "R1": 1,
+    "R2": 1,
+    "R3": 1,
+    "R4": 1,
+    "N1": 1,
+    "N2": 1,
+    "N3": 1,
+    "N4": 1,
+    "F1": 1,
+    "F2": 1,
+    "F3": 1,
+    "F4": 1,
+    "F5": 1,
+    "I1": 1,
+    "I2": 1,
+    "I3": 1,
+    "I4": 1,
+    "I5": 1,
+    "I6": 0.5,
+    "Q1": 1,
+    "Q2": 1,
+    "Q3": 0.5,
+    "Q4": 1,
+    "M1": "present",
+    "M2": "present",
+    "M3": "present",
+    "M4": "present",
+    "M5": "present",
+    "M6": "present",
+    "M7": "present",
+    "M8": "present",
+    "V1": 0.5,
+    "V2": 1,
+    "V3": 0.5,
+    "V4": 0.5,
+    "V5": 0.5,
+    "V6": 0.5,
+    "V7": 0.5
+  },
+  "benchmarkScores": {
+    "likeness": 4.5,
+    "gothic": 4.0,
+    "interior": 5.0,
+    "navigation": 7.0,
+    "learning": 7.5,
+    "ui": 4.5,
+    "perf": 7.5
+  },
+  "notes": "Provisional single-reviewer scores. Functional items rest on the model's own self-check and in-player evidence plus an independent reviewer check of the static mirror in headless Edge (D3D11): zero console errors, zero external requests, zero 404s, 60 fps home and 60 fps interior, working 2D fallback with WebGL disabled, no unnamed controls, 3D view keeps 100% of a 1024x768 window. Functional partials: I6 tower climb and Q3 accessibility. Visual deductions: V1 blocky towers and small body; V3, V4 and V5 simplified detail, plain interior and flat materials; V6 generic UI; V7 visible artefacts. Isolation: the model ran session_store_sql and saw earlier session names, but opened none of their files. Isolated run folder containing only the pack."
+}
