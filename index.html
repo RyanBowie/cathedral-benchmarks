@@ -239,7 +239,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
       <div class="scale"><span><b>0–2</b> missing or broken</span><span><b>3–4</b> crude</span><span><b>5–6</b> recognisably Cologne</span><span><b>7–8</b> convincing and detailed</span><span><b>9–10</b> near survey-grade (not reached yet)</span></div>
       <h3 style="margin:30px 0 0">The matrix</h3>
       <div class="rubric" id="rubric"></div>
-      <p class="note"><b>Provisional scores.</b> One reviewer, one run per model. Each criterion maps to the requirement IDs in the pack's <a href="pack/RUBRIC.md">RUBRIC.md</a>, and every build has a full result record (<a href="results/claude-opus-5.5.json">example</a>) with item-by-item rubric scores. Edit <code>SCORES</code> in <code>index.html</code> and everything recalculates.</p>
+      <p class="note"><b>Provisional scores.</b> Revised 23 Nov 2026: Claude Opus 5.5's likeness, Gothic detail and interior scores each raised by one point after a second look. One reviewer, one run per model. Each criterion maps to the requirement IDs in the pack's <a href="pack/RUBRIC.md">RUBRIC.md</a>, and every build has a full result record (<a href="results/claude-opus-5.5.json">example</a>) with item-by-item rubric scores. Edit <code>SCORES</code> in <code>index.html</code> and everything recalculates.</p>
     </div>
   </section>
 
@@ -381,7 +381,7 @@ const CRITERIA = [
   {k:'perf',       n:'Performance & robustness', w:10, ids:'R1–R3 Q1', d:'Frame rate, load time, no errors or hotlinks, graceful 2D fallback, runs cleanly in the managed runtime.'}
 ];
 const SCORES = {
-  'claude-opus-5.5': {likeness:6.0, gothic:4.8, interior:5.5, navigation:7.0, learning:7.5, ui:6.0, perf:7.0},
+  'claude-opus-5.5': {likeness:7.0, gothic:5.8, interior:6.5, navigation:7.0, learning:7.5, ui:6.0, perf:7.0},
   'gpt-6-astra': {likeness:7.5, gothic:6.5, interior:7.5, navigation:8.0, learning:7.5, ui:8.0, perf:8.0},
   'gpt-6.2-astra': {likeness:7.0, gothic:6.0, interior:7.0, navigation:7.5, learning:7.5, ui:8.0, perf:8.0},
   'gemini-4-carbon': {likeness:7.0, gothic:6.5, interior:6.5, navigation:7.5, learning:7.5, ui:6.5, perf:8.0},
